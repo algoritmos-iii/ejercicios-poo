@@ -253,13 +253,13 @@ printOn: aStream
 			print: denominator ].! !
 
 
-!Numero methodsFor: 'comparing' stamp: 'LL 9/13/2020 16:49:07'!
+!Numero methodsFor: 'comparing' stamp: 'LL 9/15/2020 11:00:17'!
 = anObject
 
 	((anObject isKindOf: self class) and: [ type = anObject type ]) ifTrue: [
 		type = #Entero ifTrue: [ ^value = anObject integerValue ].
 		type = #Fraccion ifTrue: [ ^(numerator * anObject denominator) = (denominator * anObject numerator) ].
-		self error: 'Tipo de número no soportado'
+		^false
 	].
 
 	^false
